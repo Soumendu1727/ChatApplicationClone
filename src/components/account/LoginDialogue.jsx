@@ -8,7 +8,8 @@ const dialogStyle = {
     width: '50%',
     maxWidth: '100%',
     maxHeight: '100%',
-    overflow: 'none'
+    overflow: 'none',
+    backgroundColor: '#DCDCDC'
 }
 
 const Component = styled(Box)`
