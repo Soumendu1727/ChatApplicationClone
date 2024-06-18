@@ -2,6 +2,9 @@ import React from 'react'
 import { GoogleLogin } from '@react-oauth/google'
 import  { jwtDecode } from 'jwt-decode'
 import { Dialog, Box, styled,  } from '@mui/material'
+import { useContext } from 'react'
+import { AccountContext } from '../../context/AccountPvd'
+
 const dialogStyle = {
     height: '60%',
     boxShadow: 'none',
@@ -9,7 +12,7 @@ const dialogStyle = {
     maxWidth: '100%',
     maxHeight: '100%',
     overflow: 'none',
-    backgroundColor: '#DCDCDC'
+    
 }
 
 const Component = styled(Box)`
@@ -25,10 +28,12 @@ const StyledBox = styled(Box)`
 `
 
 const LoginDialogue = () => {
+    
+    const { setAccount } = useContext(AccountContext)
 
     const onLoginSuccess = (res) => {
         const decode = jwtDecode(res.credential);
-        console.log(decode)
+        setAccount(decode);
         // console.log(res.credential);
     }
 
