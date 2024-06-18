@@ -43,9 +43,9 @@ const LoginDialogue = () => {
 
   return (
     <Dialog
-        open = {true}
-        PaperProps={{ sx: dialogStyle}}
-        hideBackdrop={true}
+    open = {true}
+    PaperProps={{ sx: dialogStyle}}
+    hideBackdrop={true}
     >
      <Component>
         Chat Application
