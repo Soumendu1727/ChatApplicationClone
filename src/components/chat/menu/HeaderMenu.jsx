@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import{ MoreVert } from'@mui/icons-material'
 import{ Menu, MenuItem } from '@mui/material'
 
-const HeaderMenu = () => {
+const HeaderMenu = ({ setOpen }) => {
     const [open, SetOpen] = useState(null);
     const handleClose = () => {
         SetOpen(false);
@@ -20,7 +20,6 @@ const HeaderMenu = () => {
         keepMounted
         open={open}
         onClose={handleClose}
-        getContentAnchorE1={null}
         anchorOrigin={{
             vertical: 'bottom',
             horizontal: 'center'
@@ -30,7 +29,7 @@ const HeaderMenu = () => {
             horizontal: 'right'
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={() => setOpen(true)}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>

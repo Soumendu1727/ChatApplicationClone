@@ -1,8 +1,15 @@
+import { Box } from '@mui/material'
 import React from 'react'
+
 
 const EmptyChat = () => {
   return (
-    <div>EmptyChat</div>
+    <Box>
+        <Box>
+            
+        </Box>
+    </Box>
+
   )
 }
 
