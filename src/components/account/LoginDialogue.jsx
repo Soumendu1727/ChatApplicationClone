@@ -4,6 +4,8 @@ import  { jwtDecode } from 'jwt-decode'
 import { Dialog, Box, styled,  } from '@mui/material'
 import { useContext } from 'react'
 import { AccountContext } from '../../context/AccountPvd'
+import { addUser } from '../../service/Api'
+
 
 const dialogStyle = {
     height: '60%',
@@ -31,10 +33,11 @@ const LoginDialogue = () => {
     
     const { setAccount } = useContext(AccountContext)
 
-    const onLoginSuccess = (res) => {
+    const onLoginSuccess = async (res) => {
         const decode = jwtDecode(res.credential);
         setAccount(decode);
         console.log(decode);
+        addUser(decode)
         // console.log(res.credential);
     }
 
