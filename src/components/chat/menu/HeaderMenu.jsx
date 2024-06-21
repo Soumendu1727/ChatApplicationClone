@@ -4,7 +4,7 @@ import{ MoreVert } from'@mui/icons-material'
 import{ Menu, MenuItem } from '@mui/material'
 
 const HeaderMenu = ({ setOpen }) => {
-    const [open, SetOpen] = useState(null);
+    const [open, SetOpen] = useState(false);
     const handleClose = () => {
         SetOpen(false);
     }

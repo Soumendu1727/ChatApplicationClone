@@ -12,9 +12,11 @@ const Container = styled(Box)`
     padding: 0 200px;
 `
 const Image = styled('img')({
-    width: 400,
-    marginTop: 100,
-    padding: '8rem'
+    height: '20rem',
+    width: '20rem',
+    textAlign: 'center',
+    padding: '8.1rem'
+
 })
 
 const EmptyChat = () => {

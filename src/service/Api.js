@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const url = '';
+const url = 'http://localhost:8000';
 
-export const addUser = () => {
+export const addUser = async (data) => {
     try {
-        axios.post(url, data);
+       await axios.post(`${url}/add`, data);
     }catch(error){
         console.log('Error:', error.message);
     }

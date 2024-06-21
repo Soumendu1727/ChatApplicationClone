@@ -4,7 +4,7 @@ import  { jwtDecode } from 'jwt-decode'
 import { Dialog, Box, styled,  } from '@mui/material'
 import { useContext } from 'react'
 import { AccountContext } from '../../context/AccountPvd'
-import { addUser } from '../../service/Api'
+import { addUser } from '../../service/Api';
 
 
 const dialogStyle = {
@@ -37,7 +37,7 @@ const LoginDialogue = () => {
         const decode = jwtDecode(res.credential);
         setAccount(decode);
         console.log(decode);
-        addUser(decode)
+        await addUser(decode)
         // console.log(res.credential);
     }
 

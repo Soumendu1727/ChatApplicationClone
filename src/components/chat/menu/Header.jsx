@@ -29,7 +29,7 @@ const Wrapper = styled(Box)`
         padding: 8px;
         color: #000;
     }
-    & :first-child{
+    & :first-of-type{
         margin-top: 10px;
         font-size: 21px;
     }
