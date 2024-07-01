@@ -1,59 +1,64 @@
-import React from "react";
-import { Box, styled } from "@mui/material";
-import { useContext, useState } from "react";
-import { AccountContext } from "../../../context/AccountPvd";
-import { Chat as MessageIcon } from '@mui/icons-material'
-import HeaderMenu from "./HeaderMenu";
-import InfoDrawer from "../../drawer/InfoDrawer";
+import { useContext, useState } from 'react';
+
+import { Box, styled } from '@mui/material';
+import { Chat as MessageIcon } from '@mui/icons-material';
+
+import { AccountContext } from '../../../context/AccountProvider';
+
+//components
+import HeaderMenu from './HeaderMenu';
+import InfoDrawer from '../../drawer/Drawer';
 
 const Component = styled(Box)`
+    height: 44px;
     background: #ededed;
-    height: 2rem;
-    padding: 8px 16px;
     display: flex;
+    padding: 8px 16px;
     align-items: center;
-    
-`
+`;
 
-const Image = styled('img')({
-    height: 30,
-    width: 30,
-    borderRadius: '50%'
-
-})
-
-const Wrapper = styled(Box)`
+const Wrapper = styled(Box) `
     margin-left: auto;
     & > * {
         margin-left: 2px;
         padding: 8px;
         color: #000;
+    };
+    & :first-child {
+        font-size: 22px;
+        margin-right: 8px;
+        margin-top: 3px;
     }
-    & :first-of-type{
-        margin-top: 10px;
-        font-size: 21px;
-    }
-`
-
+`;
     
+const Image = styled('img') ({
+    height: 40,
+    width: 40,
+    borderRadius: '50%'
+})
+
 const Header = () => {
-    const [openDrawer, SetOpenDrawer] = useState(false);
-  const { account } = useContext(AccountContext);
-  const toggleDrawer = () => {
-    SetOpenDrawer(true);
-  } 
-  return (
-    <>
-      <Component>
-        <Image src={account.picture} alt="DP" onClick={() => toggleDrawer()} />
-        <Wrapper>
-            <MessageIcon />
-            <HeaderMenu setOpen={SetOpenDrawer}/>
-        </Wrapper>
-      </Component>
-      <InfoDrawer open={openDrawer} setOpen={SetOpenDrawer} />
-    </>
-  );
-};
+    
+    const [openDrawer, setOpenDrawer] = useState(false);
+
+    const { account } = useContext(AccountContext);
+    
+    const toggleDrawer = () => {
+        setOpenDrawer(true);
+    }
+
+    return (
+        <>
+            <Component>
+                <Image src={account.picture} onClick={() => toggleDrawer()} />
+                <Wrapper>
+                    <MessageIcon />
+                    <HeaderMenu/>
+                </Wrapper>
+            </Component>
+            <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} profile={true} />
+        </>
+    )
+}
 
 export default Header;
